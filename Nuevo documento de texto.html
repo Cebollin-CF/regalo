@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Para mi personita especial 🎄</title>
+    <style>
+        * { box-sizing: border-box; }
+        
+        body {
+            margin: 0;
+            padding: 20px 15px;
+            background: radial-gradient(circle, #3d0c0c, #1a0505);
+            color: #fff;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .snow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px 20px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            width: 100%;
+            max-width: 380px;
+            z-index: 2;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        /* LUCES NAVIDEÑAS ALREDEDOR DE LA FOTO */
+        .foto-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            padding: 5px;
+            animation: lucesNavidad 2s linear infinite;
+        }
+
+        .foto-nosotros {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+        }
+
+        @keyframes lucesNavidad {
+            0% { box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
+            33% { box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; }
+            66% { box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700; }
+            100% { box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
+        }
+
+        h1 { color: #ff4d4d; font-size: 1.7rem; margin: 10px 0; }
+
+        .contenedor-corazon {
+            position: relative;
+            display: inline-block;
+            margin: 20px 0;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .corazon {
+            color: #ff4d4d;
+            font-size: 50px;
+            display: block;
+            animation: latido 1.2s infinite;
+        }
+
+        .indicador {
+            position: absolute;
+            top: 50%;
+            left: -100px; 
+            transform: translateY(-50%);
+            background: #d90429; 
+            color: white;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.6rem; 
+            font-weight: bold;
+            white-space: nowrap;
+            animation: flotarIzquierda 2s infinite ease-in-out;
+        }
+
+        #contador {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px;
+            border-radius: 15px;
+            margin-top: 10px;
+        }
+
+        #reloj { font-weight: bold; font-size: 1.3rem; color: #ff4d4d; }
+
+        .seccion-regalos {
+            z-index: 2;
+            width: 100%;
+            max-width: 380px;
+            padding-bottom: 40px;
+        }
+
+        .vale {
+            background: #fff;
+            color: #333;
+            margin-bottom: 12px;
+            padding: 18px;
+            border-radius: 15px;
+            border: 2px dashed #ff4d4d;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vale:active { transform: scale(0.95); }
+
+        /* Confeti de Corazones */
+        .corazon-confeti {
+            position: fixed;
+            font-size: 20px;
+            z-index: 999;
+            pointer-events: none;
+            animation: lluviaCorazones 3s linear forwards;
+        }
+
+        @keyframes lluviaCorazones {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes flotarIzquierda {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-50%) translateX(-8px); }
+        }
+
+        @keyframes saltoCaida {
+            0% { opacity: 0; transform: translate(-50%, 0); }
+            20% { opacity: 1; transform: translate(-50%, -100px); }
+            100% { opacity: 0; transform: translate(-50%, 150px); }
+        }
+
+        @keyframes latido {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="snow" class="snow"></canvas>
+
+    <div class="card">
+        <div class="foto-container">
+            <img src="WhatsAppalex.jpg" alt="Nosotros" class="foto-nosotros">
+        </div>
+        <h1>Para mi niña 🎄</h1>
+        
+        <div class="contenedor-corazon" onclick="lanzarMensaje(event)">
+            <div class="indicador">Pincha aquí</div>
+            <div class="corazon">❤</div>
+        </div>
+        
+        <div id="contador">
+            <p style="font-size: 0.7rem; margin: 0 0 5px 0; color: #aaa;">Llevamos juntos:</p>
+            <div id="reloj"></div>
+        </div>
+
+        <p style="font-size: 0.8rem; color: #ffcccc; margin-top: 20px;">
+            Hecho con amor por tu Rumanito FAV ❤
+        </p>
+    </div>
+
+    <div class="seccion-regalos">
+        <div style="text-align:center; color:#ffd700; font-weight:bold; margin-bottom:15px; font-size: 0.9rem;">🎁 TUS VALES REGALOS 🎁</div>
+        
+        <div class="vale" onclick="canjearVale('Cena Romántica', 'Prepárate para una cena increíble, me encargaré de que sea perfecta.')">
+            <h3>Cena Romántica</h3>
+            <p>Donde tú quieras, amor.</p>
+        </div>
+
+        <div class="vale" onclick="canjearVale('Noche de Pelis', 'Manta y nuestras pelis favoritas. ¡Mimbos asegurados!')">
+            <h3>Noche de Pelis</h3>
+            <p>Mimos y snacks ilimitados.</p>
+        </div>
+
+        <div class="vale" onclick="canjearVale('Viaje Sorpresa', 'Tú pones el destino, yo pongo el amor. ¡A volar!')">
+            <h3>Viaje Sorpresa</h3>
+            <p>A donde tú quieras ir conmigo.</p>
+        </div>
+    </div>
+
+    <script>
+        // Función para los vales (Alerta + Confeti)
+        function canjearVale(titulo, mensaje) {
+            crearConfeti();
+            setTimeout(() => {
+                alert(`🎁 ¡${titulo.toUpperCase()} CANJEADO!\n\n${mensaje}\n\n¡Te amo!`);
+            }, 100);
+        }
+
+        function crearConfeti() {
+            for (let i = 0; i < 30; i++) {
+                const corazon = document.createElement('div');
+                corazon.className = 'corazon-confeti';
+                corazon.innerText = '❤️';
+                corazon.style.left = Math.random() * 100 + 'vw';
+                corazon.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                corazon.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                document.body.appendChild(corazon);
+                setTimeout(() => corazon.remove(), 3000);
+            }
+        }
+
+        // Frases del corazón principal
+        const frasesCorazon = ["¡Te amo! ❤️", "¡Mi vida! 😍", "¡Preciosa! ✨", "¡Muuuuak! 💋", "¡Siempre tú! 👩‍❤️‍👨"];
+
+        function lanzarMensaje(event) {
+            const contenedor = event.currentTarget;
+            const texto = frasesCorazon[Math.floor(Math.random() * frasesCorazon.length)];
+            const el = document.createElement('div');
+            el.className = 'mensaje-flotante';
+            el.innerText = texto;
+            el.style.left = "50%";
+            el.style.top = "0";
+            contenedor.appendChild(el);
+            setTimeout(() => el.remove(), 2000);
+        }
+
+        // Nieve
+        const canvas = document.getElementById('snow');
+        const ctx = canvas.getContext('2d');
+        let width, height, flakes = [];
+
+        function setCanvasSize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            createFlakes();
+        }
+
+        function createFlakes() {
+            flakes = [];
+            for (let i = 0; i < 50; i++) {
+                flakes.push({ x: Math.random() * width, y: Math.random() * height, r: Math.random() * 2 + 1, d: Math.random() * 0.5 + 0.5 });
+            }
+        }
+
+        function drawFlakes() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = "white";
+            ctx.beginPath();
+            for (let i = 0; i < flakes.length; i++) {
+                let f = flakes[i];
+                ctx.moveTo(f.x, f.y);
+                ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
+            }
+            ctx.fill();
+            for (let i = 0; i < flakes.length; i++) {
+                let f = flakes[i];
+                f.y += f.d;
+                if (f.y > height) f.y = 0;
+            }
+            requestAnimationFrame(drawFlakes);
+        }
+
+        window.addEventListener('resize', setCanvasSize);
+        setCanvasSize();
+        requestAnimationFrame(drawFlakes);
+
+        // Reloj
+        function actualizarContador() {
+            const fechaInicio = new Date('2025-11-14T23:12:02'); 
+            const ahora = new Date();
+            const diferencia = ahora - fechaInicio;
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+            const minutos = Math.floor((diferencia / 1000 / 60) % 60);
+            document.getElementById('reloj').innerHTML = `${dias}d ${horas}h ${minutos}m`;
+        }
+        setInterval(actualizarContador, 1000);
+        actualizarContador();
+    </script>
+</body>
+</html>
