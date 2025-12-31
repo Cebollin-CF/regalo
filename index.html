@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PMDZSXHK');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Para Victoria 🎄</title>
@@ -86,7 +91,6 @@
 
         h1 { color: #ff4d4d; font-size: 1.7rem; margin: 10px 0; }
 
-        /* CORAZÓN Y MENSAJES */
         .contenedor-corazon {
             position: relative;
             display: inline-block;
@@ -118,7 +122,6 @@
         }
         #reloj { font-weight: bold; font-size: 1.3rem; color: #ff4d4d; }
 
-        /* BARRA DE CONFIANZA */
         .trust-section {
             margin: 20px 0;
             background: rgba(0,0,0,0.2);
@@ -129,7 +132,6 @@
         #trust-level { background: linear-gradient(to right, #ff4d4d, #ffd700); width: 15%; height: 100%; transition: width 1s ease; }
         .btn-trust { background: #d90429; color: white; border: none; padding: 8px 12px; border-radius: 8px; font-size: 0.8rem; cursor: pointer; }
 
-        /* GALERÍA POLAROID */
         .gallery {
             display: flex;
             justify-content: center;
@@ -162,7 +164,6 @@
             animation: pulso 2s infinite;
         }
 
-        /* VALES */
         .seccion-regalos { z-index: 2; width: 100%; max-width: 380px; padding-bottom: 40px; }
         .vale {
             background: #fff; color: #333; margin-bottom: 12px;
@@ -170,7 +171,6 @@
             text-align: center; cursor: pointer;
         }
 
-        /* MODAL */
         .modal {
             display: none; position: fixed; z-index: 100;
             left: 0; top: 0; width: 100%; height: 100%;
@@ -183,7 +183,6 @@
             position: relative; line-height: 1.6; text-align: left;
         }
 
-        /* ANIMACIONES */
         @keyframes pulso { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
         @keyframes latido { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
         @keyframes flotarIzquierda { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-8px); } }
@@ -196,7 +195,8 @@
     </style>
 </head>
 <body>
-
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMDZSXHK"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <canvas id="snow" class="snow"></canvas>
 
     <div class="music-control" onclick="toggleMusic()">🎵</div>
@@ -254,18 +254,12 @@
         <div class="modal-content">
             <span style="position:absolute; top:10px; right:20px; cursor:pointer; font-size:30px;" onclick="cerrarCarta()">&times;</span>
             <h2 style="color: #d90429; text-align: center;">Victoria,</h2>
-            
-            <p>He estado pensando mucho en todo lo que hemos pasado. A veces me quedo colgado recordando el momento exacto en el que me di cuenta de lo mucho que me gustabas. Fue una de esas veces que nos quedamos mirando fijo, **directo a los ojos**, y de repente todo el ruido de fuera desapareció. No sé qué paranoia me entró, pero vi algo en tu mirada que me hizo click; una conexión de esas que no se explican, solo se sienten. En ese momento supe que quería que fueras tú.</p>
-
-            <p>Tengo claro lo que siento y por eso sigo aquí, pero también soy realista. Las cosas han estado raras y los dos sabemos por qué.</p>
-
+            <p>He estado pensando mucho... recordaba el momento exacto en el que me di cuenta de lo mucho que me gustabas. Fue cuando nos miramos **directo a los ojos** y el mundo se paró. En ese momento supe que quería que fueras tú.</p>
             <div style="background: #fff5f5; border-left: 4px solid #d90429; padding: 15px; margin: 20px 0; font-style: italic; font-weight: 500;">
                 "Sé que aunque la hayas cagado de manera garrafal, te recomiendo que sigas intentando ganarte mi confianza aunque sea difícil ahora mismo. Porque lo que yo sentí aquel día mirándote a los ojos sigue ahí, pero ahora te toca a ti demostrar que esto te importa tanto como a mí."
             </div>
-
-            <p>Yo estoy chill, pero necesito ver que tú también estás en el mismo barco. No quiero frases hechas, quiero que volvamos a esa mirada de la que me enamoré, pero con la tranquilidad de que estamos bien de verdad.</p>
-            
-            <p style="text-align: right; font-weight: bold; color: #d90429; margin-top: 20px;">Tu Rumanito.</p>
+            <p>Yo estoy chill, pero necesito ver que tú también estás en el mismo barco. Te quiero.</p>
+            <p style="text-align: right; font-weight: bold; color: #d90429;">Tu Rumanito.</p>
         </div>
     </div>
 
@@ -275,18 +269,15 @@
         function canjearVale(t, m) { alert(`🎁 ¡${t}!\n\n${m}\n\nTe amo.`); }
         function abrirCarta() { document.getElementById("cartaModal").style.display = "block"; }
         function cerrarCarta() { document.getElementById("cartaModal").style.display = "none"; }
-        
         const frasesCorazon = ["Te amo ❤️", "Mi vida 😍", "Preciosa ✨", "Muuuack 💋"];
         function lanzarMensaje(event) {
             const texto = frasesCorazon[Math.floor(Math.random() * frasesCorazon.length)];
             const el = document.createElement('div');
-            el.className = 'mensaje-flotante';
-            el.innerText = texto;
+            el.className = 'mensaje-flotante'; el.innerText = texto;
             el.style.left = "50%"; el.style.top = "50%";
             event.currentTarget.appendChild(el);
             setTimeout(() => el.remove(), 2000);
         }
-
         const canvas = document.getElementById('snow');
         const ctx = canvas.getContext('2d');
         let width, height, flakes = [];
