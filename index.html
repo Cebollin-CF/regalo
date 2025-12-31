@@ -11,194 +11,81 @@
     <title>Para Victoria 🎄</title>
     <style>
         * { box-sizing: border-box; }
-        
         body {
-            margin: 0;
-            padding: 20px 15px;
+            margin: 0; padding: 20px 15px;
             background: radial-gradient(circle, #3d0c0c, #1a0505);
-            color: #fff;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
+            color: #fff; font-family: 'Segoe UI', Roboto, sans-serif;
+            display: flex; flex-direction: column; align-items: center;
+            min-height: 100vh; overflow-x: hidden;
         }
-
-        .snow {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* BOTÓN MÚSICA */
+        .snow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
         .music-control {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: rgba(217, 4, 41, 0.8);
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(255,0,0,0.5);
+            position: fixed; top: 20px; right: 20px; z-index: 1000;
+            background: rgba(217, 4, 41, 0.8); border-radius: 50%;
+            width: 45px; height: 45px; display: flex; justify-content: center; align-items: center;
+            cursor: pointer; box-shadow: 0 0 15px rgba(255,0,0,0.5);
         }
-
         .card {
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 30px 20px;
-            border-radius: 25px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            width: 100%;
-            max-width: 380px;
-            z-index: 2;
-            margin-bottom: 30px;
-            position: relative;
+            background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2); padding: 30px 20px; border-radius: 25px;
+            text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            width: 100%; max-width: 380px; z-index: 2; margin-bottom: 30px; position: relative;
         }
-
         .foto-container {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 15px;
-            border-radius: 50%;
-            padding: 5px;
-            animation: lucesNavidad 2s linear infinite;
+            position: relative; width: 150px; height: 150px; margin: 0 auto 15px;
+            border-radius: 50%; padding: 5px; animation: lucesNavidad 2s linear infinite;
         }
-
-        .foto-nosotros {
-            width: 100%; height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid white;
-        }
-
-        @keyframes lucesNavidad {
-            0% { box-shadow: 0 0 10px #ff0000; }
-            33% { box-shadow: 0 0 10px #00ff00; }
-            66% { box-shadow: 0 0 10px #ffd700; }
-            100% { box-shadow: 0 0 10px #ff0000; }
-        }
-
+        .foto-nosotros { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid white; }
+        @keyframes lucesNavidad { 0% { box-shadow: 0 0 10px #ff0000; } 33% { box-shadow: 0 0 10px #00ff00; } 66% { box-shadow: 0 0 10px #ffd700; } 100% { box-shadow: 0 0 10px #ff0000; } }
         h1 { color: #ff4d4d; font-size: 1.7rem; margin: 10px 0; }
-
-        .contenedor-corazon {
-            position: relative;
-            display: inline-block;
-            margin: 20px 0;
-            cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .corazon {
-            color: #ff4d4d;
-            font-size: 50px;
-            display: block;
-            animation: latido 1.2s infinite;
-        }
+        .contenedor-corazon { position: relative; display: inline-block; margin: 20px 0; cursor: pointer; }
+        .corazon { color: #ff4d4d; font-size: 50px; display: block; animation: latido 1.2s infinite; }
         .indicador {
-            position: absolute;
-            top: 50%; left: -100px; 
-            transform: translateY(-50%);
-            background: #d90429; color: white;
-            padding: 3px 8px; border-radius: 6px;
-            font-size: 0.6rem; font-weight: bold;
-            animation: flotarIzquierda 2s infinite ease-in-out;
+            position: absolute; top: 50%; left: -100px; transform: translateY(-50%);
+            background: #d90429; color: white; padding: 3px 8px; border-radius: 6px;
+            font-size: 0.6rem; font-weight: bold; animation: flotarIzquierda 2s infinite ease-in-out;
         }
-
-        #contador {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 12px;
-            border-radius: 15px;
-            margin-top: 10px;
-        }
+        #contador { background: rgba(0, 0, 0, 0.3); padding: 12px; border-radius: 15px; margin-top: 10px; }
         #reloj { font-weight: bold; font-size: 1.3rem; color: #ff4d4d; }
-
-        .trust-section {
-            margin: 20px 0;
-            background: rgba(0,0,0,0.2);
-            padding: 15px;
-            border-radius: 15px;
-        }
+        .trust-section { margin: 20px 0; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 15px; }
         .trust-bar-bg { background: #444; height: 10px; border-radius: 5px; margin: 10px 0; overflow: hidden; }
         #trust-level { background: linear-gradient(to right, #ff4d4d, #ffd700); width: 15%; height: 100%; transition: width 1s ease; }
         .btn-trust { background: #d90429; color: white; border: none; padding: 8px 12px; border-radius: 8px; font-size: 0.8rem; cursor: pointer; }
-
-        .gallery {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        .polaroid {
-            background: white;
-            padding: 5px 5px 15px 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            width: 80px;
-            transition: 0.3s;
-        }
+        .gallery { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+        .polaroid { background: white; padding: 5px 5px 15px 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); width: 80px; transition: 0.3s; }
         .polaroid img { width: 100%; height: 60px; object-fit: cover; }
         .polaroid:nth-child(odd) { transform: rotate(-5deg); }
         .polaroid:nth-child(even) { transform: rotate(5deg); }
-        .polaroid:active { transform: rotate(0) scale(1.5); z-index: 10; }
-
         .btn-carta {
-            background: linear-gradient(45deg, #d90429, #ff4d4d);
-            color: white;
-            padding: 15px 25px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin-top: 10px;
-            cursor: pointer;
+            background: linear-gradient(45deg, #d90429, #ff4d4d); color: white;
+            padding: 15px 25px; border: none; border-radius: 30px;
+            font-size: 1.1rem; font-weight: bold; margin-top: 10px; cursor: pointer;
             animation: pulso 2s infinite;
         }
-
         .seccion-regalos { z-index: 2; width: 100%; max-width: 380px; padding-bottom: 40px; }
         .vale {
-            background: #fff; color: #333; margin-bottom: 12px;
-            padding: 18px; border-radius: 15px; border: 2px dashed #ff4d4d;
-            text-align: center; cursor: pointer;
+            background: #fff; color: #333; margin-bottom: 12px; padding: 18px;
+            border-radius: 15px; border: 2px dashed #ff4d4d; text-align: center; cursor: pointer;
         }
-
         .modal {
-            display: none; position: fixed; z-index: 100;
-            left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.9); backdrop-filter: blur(10px);
-            overflow-y: auto; padding-top: 20px;
+            display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.9); backdrop-filter: blur(10px); overflow-y: auto; padding-top: 20px;
         }
         .modal-content {
-            background: #fff; margin: 5% auto; padding: 30px;
-            border-radius: 20px; width: 90%; max-width: 500px; color: #222;
-            position: relative; line-height: 1.6; text-align: left;
+            background: #fff; margin: 5% auto; padding: 30px; border-radius: 20px;
+            width: 90%; max-width: 500px; color: #222; position: relative; line-height: 1.6; text-align: left;
         }
-
         @keyframes pulso { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
         @keyframes latido { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
         @keyframes flotarIzquierda { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-8px); } }
         .mensaje-flotante { position: absolute; color: #fff; font-weight: bold; pointer-events: none; animation: saltoCaida 2s forwards; }
-        @keyframes saltoCaida {
-            0% { opacity: 0; transform: translate(-50%, 0); }
-            20% { opacity: 1; transform: translate(-50%, -80px); }
-            100% { opacity: 0; transform: translate(-50%, 100px); }
-        }
+        @keyframes saltoCaida { 0% { opacity: 0; transform: translate(-50%, 0); } 20% { opacity: 1; transform: translate(-50%, -80px); } 100% { opacity: 0; transform: translate(-50%, 100px); } }
     </style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMDZSXHK"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <canvas id="snow" class="snow"></canvas>
-
     <div class="music-control" onclick="toggleMusic()">🎵</div>
     <audio id="bgMusic" loop><source src="musica.mp3" type="audio/mpeg"></audio>
 
@@ -207,23 +94,19 @@
             <img src="WhatsAppalex.jpeg" alt="Nosotros" class="foto-nosotros" onerror="this.src='WhatsAppalex.jpg'">
         </div>
         <h1>Para mi niña 🎄</h1>
-        
         <div class="contenedor-corazon" onclick="lanzarMensaje(event)">
             <div class="indicador">Pincha aquí</div>
             <div class="corazon">❤</div>
         </div>
-        
         <div id="contador">
             <p style="font-size: 0.7rem; margin: 0 0 5px 0; color: #aaa;">Llevamos juntos:</p>
             <div id="reloj"></div>
         </div>
-
         <div class="trust-section">
             <p style="font-size: 0.7rem; color: #aaa; margin: 0;">Nivel de Confianza:</p>
             <div class="trust-bar-bg"><div id="trust-level"></div></div>
             <button class="btn-trust" onclick="subirConfianza()">¿Recuperar confianza?</button>
         </div>
-
         <button class="btn-carta" onclick="abrirCarta()">💌 Lee esto con calma</button>
     </div>
 
@@ -235,19 +118,9 @@
     </div>
 
     <div class="seccion-regalos">
-        <div style="text-align:center; color:#ffd700; font-weight:bold; margin-bottom:15px; font-size: 0.9rem;">🎁 TUS VALES REGALOS 🎁</div>
-        <div class="vale" onclick="canjearVale('Cena Romántica', 'Tú eliges el sitio, yo me encargo de todo.')">
-            <h3>Cena Romántica</h3>
-            <p>Donde tú quieras, amor.</p>
-        </div>
-        <div class="vale" onclick="canjearVale('Noche de Pelis', 'Manta y nuestras pelis favoritas.')">
-            <h3>Noche de Pelis</h3>
-            <p>Mimos y snacks ilimitados.</p>
-        </div>
-        <div class="vale" onclick="canjearVale('Viaje Sorpresa', 'Tú pones el destino, yo pongo el amor.')">
-            <h3>Viaje Sorpresa</h3>
-            <p>A donde tú quieras ir conmigo.</p>
-        </div>
+        <div class="vale" onclick="canjearVale('Cena Romántica', 'Tú eliges el sitio.')"><h3>Cena Romántica</h3></div>
+        <div class="vale" onclick="canjearVale('Noche de Pelis', 'Mimos y snacks.')"><h3>Noche de Pelis</h3></div>
+        <div class="vale" onclick="canjearVale('Viaje Sorpresa', 'Tú pones el destino.')"><h3>Viaje Sorpresa</h3></div>
     </div>
 
     <div id="cartaModal" class="modal">
@@ -255,8 +128,8 @@
             <span style="position:absolute; top:10px; right:20px; cursor:pointer; font-size:30px;" onclick="cerrarCarta()">&times;</span>
             <h2 style="color: #d90429; text-align: center;">Victoria,</h2>
             <p>He estado pensando mucho... recordaba el momento exacto en el que me di cuenta de lo mucho que me gustabas. Fue cuando nos miramos **directo a los ojos** y el mundo se paró. En ese momento supe que quería que fueras tú.</p>
-            <div style="background: #fff5f5; border-left: 4px solid #d90429; padding: 15px; margin: 20px 0; font-style: italic; font-weight: 500;">
-                "Sé que aunque la hayas cagado de manera garrafal, te recomiendo que sigas intentando ganarte mi confianza aunque sea difícil ahora mismo. Porque lo que yo sentí aquel día mirándote a los ojos sigue ahí, pero ahora te toca a ti demostrar que esto te importa tanto como a mí."
+            <div style="background: #fff5f5; border-left: 4px solid #d90429; padding: 15px; margin: 20px 0; font-style: italic;">
+                "Sé que aunque la hayas cagado de manera garrafal, te recomiendo que sigas intentando ganarte mi confianza aunque sea difícil ahora mismo. Te toca demostrar que esto te importa tanto como a mí."
             </div>
             <p>Yo estoy chill, pero necesito ver que tú también estás en el mismo barco. Te quiero.</p>
             <p style="text-align: right; font-weight: bold; color: #d90429;">Tu Rumanito.</p>
@@ -265,21 +138,19 @@
 
     <script>
         function toggleMusic() { const m = document.getElementById('bgMusic'); if (m.paused) m.play(); else m.pause(); }
-        function subirConfianza() { document.getElementById('trust-level').style.width = '45%'; alert("Aún falta mucho para el 100%, pero vas por buen camino... demuestra más."); }
+        function subirConfianza() { document.getElementById('trust-level').style.width = '45%'; alert("Vas por buen camino... demuestra más."); }
         function canjearVale(t, m) { alert(`🎁 ¡${t}!\n\n${m}\n\nTe amo.`); }
         function abrirCarta() { document.getElementById("cartaModal").style.display = "block"; }
         function cerrarCarta() { document.getElementById("cartaModal").style.display = "none"; }
         const frasesCorazon = ["Te amo ❤️", "Mi vida 😍", "Preciosa ✨", "Muuuack 💋"];
         function lanzarMensaje(event) {
             const texto = frasesCorazon[Math.floor(Math.random() * frasesCorazon.length)];
-            const el = document.createElement('div');
-            el.className = 'mensaje-flotante'; el.innerText = texto;
-            el.style.left = "50%"; el.style.top = "50%";
-            event.currentTarget.appendChild(el);
+            const el = document.createElement('div'); el.className = 'mensaje-flotante'; el.innerText = texto;
+            el.style.left = "50%"; el.style.top = "50%"; event.currentTarget.appendChild(el);
             setTimeout(() => el.remove(), 2000);
         }
-        const canvas = document.getElementById('snow');
-        const ctx = canvas.getContext('2d');
+        // NIEVE Y CONTADOR
+        const canvas = document.getElementById('snow'); const ctx = canvas.getContext('2d');
         let width, height, flakes = [];
         function setCanvasSize() {
             width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight;
@@ -292,15 +163,13 @@
             requestAnimationFrame(drawFlakes);
         }
         function actualizarContador() {
-            const fechaInicio = new Date('2025-11-14T23:12:02'); 
-            const diferencia = new Date() - fechaInicio;
+            const fechaInicio = new Date('2025-11-14T23:12:02'); const diferencia = new Date() - fechaInicio;
             const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
             const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
             const minutos = Math.floor((diferencia / 1000 / 60) % 60);
             document.getElementById('reloj').innerHTML = `${dias}d ${horas}h ${minutos}m`;
         }
-        window.addEventListener('resize', setCanvasSize);
-        setCanvasSize(); drawFlakes(); setInterval(actualizarContador, 1000); actualizarContador();
+        window.addEventListener('resize', setCanvasSize); setCanvasSize(); drawFlakes(); setInterval(actualizarContador, 1000); actualizarContador();
     </script>
 </body>
 </html>
